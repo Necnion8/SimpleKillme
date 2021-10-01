@@ -1,0 +1,11 @@
+name: SimpleKillme
+version: '${version}'
+main: com.gmail.necnionch.myplugin.simplekillme.bukkit.SimpleKillme
+api-version: 1.17
+authors: [ Necnion8 ]
+depend: [CommandAPI]
+
+
+permissions:
+  simplekillme.command.killme:
+    default: false
