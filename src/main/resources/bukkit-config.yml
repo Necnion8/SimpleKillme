@@ -2,3 +2,6 @@ kill-warning:
   count: 100  # 警告を無効化するには -1 を指定
   message: "&c&l続けるにはもう一度実行してください (対象のエンティティ: {count}体)"
 
+# コンソールによるkillコマンドのログを出しません
+# データパックが使われる環境では要推奨です。
+hide-kill-log-executed-by-console: true

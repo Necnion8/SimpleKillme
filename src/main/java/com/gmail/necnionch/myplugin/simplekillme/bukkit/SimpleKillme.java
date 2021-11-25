@@ -20,14 +20,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
 
 public final class SimpleKillme extends JavaPlugin implements Listener {
+    private static SimpleKillme INSTANCE;
     private final MainConfig mainConfig = new MainConfig(this);
     private final Map<Player, Integer> confirmed = Maps.newHashMap();
 
     @Override
     public void onEnable() {
+        INSTANCE = this;
         mainConfig.load();
 
         new CommandKill(this).register();
@@ -59,6 +62,8 @@ public final class SimpleKillme extends JavaPlugin implements Listener {
                 Bukkit.getConsoleSender().sendMessage(result);
                 return;
             }
+        } else if ((source instanceof ConsoleCommandSender) && (INSTANCE != null && INSTANCE.mainConfig.isHideKillLogExecutedByConsole())) {
+            return;  // hidden
         }
 
         if (sendToSource && !(source instanceof ConsoleCommandSender)) {

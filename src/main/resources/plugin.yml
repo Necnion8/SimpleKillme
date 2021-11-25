@@ -9,3 +9,6 @@ depend: [CommandAPI]
 permissions:
   simplekillme.command.killme:
     default: false
+
+# v1.1.1:
+#   データパックによるkillがコンソール及びOPまで通知される問題の修正
