@@ -20,7 +20,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Logger;
 
 
 public final class SimpleKillme extends JavaPlugin implements Listener {

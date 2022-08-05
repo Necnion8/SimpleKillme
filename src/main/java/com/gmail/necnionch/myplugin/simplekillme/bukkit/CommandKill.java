@@ -1,6 +1,7 @@
 package com.gmail.necnionch.myplugin.simplekillme.bukkit;
 
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.EntitySelector;
 import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.wrappers.NativeProxyCommandSender;
 import net.md_5.bungee.api.ChatColor;
@@ -12,7 +13,6 @@ import org.bukkit.entity.Player;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Set;
 
 
 public class CommandKill {
@@ -31,7 +31,7 @@ public class CommandKill {
 
         new CommandAPICommand("kill")
                 .withPermission("minecraft.command.kill")
-                .withArguments(new EntitySelectorArgument("targets", EntitySelectorArgument.EntitySelector.MANY_ENTITIES)
+                .withArguments(new EntitySelectorArgument<Entity>("targets", EntitySelector.MANY_ENTITIES)
                         .withPermission("minecraft.command.kill"))
                 .executesNative(this::executeArgument)
                 .register();
